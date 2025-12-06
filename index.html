@@ -217,6 +217,22 @@
   color:#081018 !important;
   border:none !important;
 }
+/* ✅ ABOUT SECTION MOBILE FIX - FINAL */
+.about-grid{
+  display:grid;
+  gap:12px;
+  grid-template-columns:1fr 320px;
+}
+
+@media (max-width: 768px){
+  .about-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .about-grid img{
+    height:160px !important;
+  }
+}
 
   </style>
 </head>
@@ -281,7 +297,8 @@
   <!-- ABOUT -->
   <section id="about" aria-labelledby="about-heading">
     <h2 id="about-heading">About Almost Café</h2>
-    <div style="display:grid;gap:12px;grid-template-columns:1fr 320px">
+    <div class="about-grid">
+
       <div class="card">
         <p class="muted">Almost Café is a cozy, underground hangout in Lajpat Nagar, Kanpur. We offer a relaxed vibe, pocket-friendly prices and an eclectic menu — from comfort breakfasts to luscious shakes and pizzas. Perfect for friends, families and casual dates. Our space is designed to be calm and intimate with music that complements conversation, not drowns it out.</p>
 
@@ -513,4 +530,5 @@
   </script>
 </body>
 </html>
+
 
