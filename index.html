@@ -52,7 +52,7 @@
       --bg:#071026;
       --card:#0b1726;
       --muted:#9aa5b1;
-      --accent:#ff9800;
+      --accent:#ff9800; /* gold/orange accent */
       --glass: rgba(255,255,255,0.03);
       --maxw:1100px;
     }
@@ -95,68 +95,14 @@
     .brand p{margin:0;font-size:12px;color:var(--muted)}
 
     nav ul{list-style:none;display:flex;gap:14px;margin:0;padding:0;align-items:center}
-    nav a{color:var(--muted);padding:8px;border-radius:8px;font-size:14px;text-decoration:none}
+    nav a{color:var(--muted);padding:8px;border-radius:8px;font-size:14px}
     nav a:hover{color:#fff;background:rgba(255,255,255,0.03)}
 
-    /* Mobile menu - FIXED */
-    .menu-toggle{
-      display:none;
-      background:transparent;
-      border:0;
-      color:#fff;
-      font-size:28px;
-      padding:8px;
-      cursor:pointer;
-      align-items:center;
-      justify-content:center;
-      width:44px;
-      height:44px;
-    }
-
+    /* mobile menu */
+    .menu-toggle{display:none;background:transparent;border:0;color:var(--muted);font-size:18px;padding:8px}
     @media (max-width:880px){
-      nav ul{
-        display:none;
-        position:absolute;
-        top:100%;
-        left:0;
-        right:0;
-        background:linear-gradient(180deg, rgba(11,23,38,0.98), rgba(7,16,38,0.98));
-        backdrop-filter:blur(10px);
-        flex-direction:column;
-        padding:20px;
-        gap:0;
-        box-shadow:0 10px 30px rgba(0,0,0,0.5);
-        border-top:1px solid rgba(255,152,0,0.1);
-      }
-      
-      nav ul.active{
-        display:flex !important;
-      }
-      
-      nav ul li{
-        width:100%;
-        text-align:center;
-        border-bottom:1px solid rgba(255,255,255,0.05);
-      }
-      
-      nav ul li:last-child{
-        border-bottom:none;
-      }
-      
-      nav a{
-        display:block;
-        width:100%;
-        padding:16px;
-        font-size:16px;
-      }
-      
-      .menu-toggle{
-        display:flex;
-      }
-      
-      .topbar{
-        position:relative;
-      }
+      nav ul{display:none}
+      .menu-toggle{display:block}
     }
 
     /* HERO */
@@ -180,9 +126,9 @@
     .cta-row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
     .btn{
       display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:10px;border:0;font-weight:700;
-      background:var(--accent);color:#081018;cursor:pointer;box-shadow:0 6px 20px rgba(255,152,0,0.12);text-decoration:none;
+      background:var(--accent);color:#081018;cursor:pointer;box-shadow:0 6px 20px rgba(255,152,0,0.12)
     }
-    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(255,152,0,0.12);backdrop-filter:blur(4px)}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(255,152,0,0.12) ;backdrop-filter:blur(4px)}
     .icon-sm{font-size:16px}
 
     .hero-image{
@@ -231,19 +177,12 @@
     .lightbox img{max-width:92%;max-height:88%;border-radius:8px;box-shadow:0 18px 60px rgba(0,0,0,0.8)}
     .lightbox .close{position:absolute;top:20px;right:20px;color:#fff;font-size:22px;background:rgba(0,0,0,0.3);border-radius:8px;padding:8px 10px;cursor:pointer}
 
-    /* REVIEWS */
+    /* REVIEWS (embedded map + sample cards) */
     .reviews-wrap{display:grid;grid-template-columns:1fr 360px;gap:14px}
     .reviews-cards{display:flex;flex-direction:column;gap:12px}
     .review{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:12px;border-radius:8px}
     .stars{color:var(--accent);font-weight:800}
     .map-embed{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
-
-    /* About grid */
-    .about-grid{
-      display:grid;
-      gap:12px;
-      grid-template-columns:1fr 320px;
-    }
 
     @media (max-width:980px){
       .hero{flex-direction:column}
@@ -251,23 +190,73 @@
       .reviews-wrap{grid-template-columns:1fr}
     }
 
-    @media (max-width: 768px){
-      .about-grid{
-        grid-template-columns:1fr !important;
-      }
-      .about-grid img{
-        height:160px !important;
-      }
-    }
-
     /* FOOTER */
     footer{padding:28px 16px;text-align:center;color:var(--muted)}
     .socials{display:flex;gap:10px;justify-content:center;margin-top:10px}
-    .socials a{background:var(--glass);padding:10px;border-radius:10px;color:var(--muted);display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+    .socials a{background:var(--glass);padding:10px;border-radius:10px;color:var(--muted);display:inline-flex;align-items:center;justify-content:center}
 
     /* utility */
     .center{text-align:center}
     a.no-decoration{color:inherit;text-decoration:none}
+    <!-- ✅ ADD THIS INSIDE YOUR <style> TAG AT THE END -->
+
+/* ✅ MOBILE ABOUT FIX */
+@media (max-width: 768px){
+  #about > div{
+    grid-template-columns:1fr !important;
+  }
+  #about img{
+    height:160px !important;
+  }
+}
+
+/* ✅ MAKE ALL BUTTON COLORS SAME */
+.btn,
+.btn.ghost{
+  background:var(--accent) !important;
+  color:#081018 !important;
+  border:none !important;
+}
+/* ✅ ABOUT SECTION MOBILE FIX - FINAL */
+.about-grid{
+  display:grid;
+  gap:12px;
+  grid-template-columns:1fr 320px;
+}
+
+@media (max-width: 768px){
+  .about-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .about-grid img{
+    height:160px !important;
+  }
+}
+
+/* ✅ MOBILE MENU ICON ALIGNMENT FIX */
+.menu-toggle{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  height:40px;
+  width:40px;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  display:block;
+  width:24px;
+  height:2.5px;
+  background:#fff;
+  margin:5px 0;
+  border-radius:2px;
+}
+
+/* Header height fix for clean alignment */
+header{
+  min-height:64px;
+}
 
   </style>
 </head>
@@ -308,12 +297,17 @@
       <div class="meta">Open till 12 AM · Lower Ground, 120/611A, Opposite Golden Basket, Lajpat Nagar, Kanpur</div>
 
       <div class="cta-row">
+        <!-- Call button -->
         <a class="btn" href="tel:07311109101" aria-label="Call Almost Cafe">
           <span class="icon-sm">📞</span> Call for Booking
         </a>
+
+        <!-- WhatsApp button (prefilled message) -->
         <a class="btn" href="https://wa.me/917311109101?text=Hello%2C%20I%20would%20like%20to%20book%20a%20table%20at%20Almost%20Caf%C3%A9" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Almost Cafe">
           <span class="icon-sm">💬</span> WhatsApp
         </a>
+
+        <!-- Instagram (edit link) -->
         <a class="btn ghost" href="https://www.instagram.com/almostcafe?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram Almost Cafe">
           <span class="icon-sm">📷</span> Instagram
         </a>
@@ -329,14 +323,17 @@
   <section id="about" aria-labelledby="about-heading">
     <h2 id="about-heading">About Almost Café</h2>
     <div class="about-grid">
+
       <div class="card">
         <p class="muted">Almost Café is a cozy, underground hangout in Lajpat Nagar, Kanpur. We offer a relaxed vibe, pocket-friendly prices and an eclectic menu — from comfort breakfasts to luscious shakes and pizzas. Perfect for friends, families and casual dates. Our space is designed to be calm and intimate with music that complements conversation, not drowns it out.</p>
+
         <ul style="margin-top:12px" class="muted">
           <li><strong>Timings:</strong> 9:00 AM — 12:00 AM</li>
           <li><strong>Price Range:</strong> ₹200–₹400 per person</li>
           <li><strong>Services:</strong> Dine-In · Drive-Through · No-contact delivery</li>
         </ul>
       </div>
+
       <div class="card center">
         <img alt="cafe vibe" style="width:100%;height:200px;object-fit:cover;border-radius:10px" src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=1000&q=80">
       </div>
@@ -346,39 +343,49 @@
   <!-- FEATURES -->
   <section id="menu" aria-labelledby="menu-heading">
     <h2 id="menu-heading">Our Cuisines</h2>
+  
     <div class="grid">
+  
       <div class="card dish">
         <div class="thumb"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80"></div>
         <div class="info"><h4>Specialty Coffee</h4></div>
       </div>
+  
       <div class="card dish">
         <div class="thumb"><img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&q=80"></div>
         <div class="info"><h4>Shakes & Mocktails</h4></div>
       </div>
+  
       <div class="card dish">
         <div class="thumb"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80"></div>
         <div class="info"><h4>Italian Pizzas</h4></div>
       </div>
+  
       <div class="card dish">
         <div class="thumb"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&q=80"></div>
         <div class="info"><h4>Pasta & Mains</h4></div>
       </div>
+      
       <div class="card dish">
         <div class="thumb"><img src="https://raw.githubusercontent.com/rahul76512/almost-cafe-demo/7fd4314547269023c9feede61af9b9e4d35ae8f4/soup.jpg" alt="Soup"></div>
         <div class="info"><h4>Soups</h4></div>
       </div>
+
       <div class="card dish">
         <div class="thumb"><img src="https://raw.githubusercontent.com/rahul76512/almost-cafe-demo/7fd4314547269023c9feede61af9b9e4d35ae8f4/Nachos%20and%20Fries.jpg" alt="Nachos and Fries"></div>
         <div class="info"><h4>Nachos and Fries</h4></div>
       </div>
+
       <div class="card dish">
         <div class="thumb"><img src="https://raw.githubusercontent.com/rahul76512/almost-cafe-demo/7fd4314547269023c9feede61af9b9e4d35ae8f4/Burgers%20%26%20Sandwiches.jpg" alt="Burgers and Sandwiches"></div>
         <div class="info"><h4>Burgers & Sandwiches</h4></div>
       </div>
+  
       <div class="card dish">
         <div class="thumb"><img src="https://raw.githubusercontent.com/rahul76512/almost-cafe-demo/7fd4314547269023c9feede61af9b9e4d35ae8f4/desserts.jpg" alt="Desserts"></div>
         <div class="info"><h4>Desserts</h4></div>
       </div>
+  
     </div>
   </section>
 
@@ -386,16 +393,22 @@
   <section id="gallery" aria-labelledby="gallery-heading">
     <h2 id="gallery-heading">Photo Gallery</h2>
     <div class="gallery" id="gallery-grid">
+      <!-- demo images - replace with your own -->
       <div class="img" tabindex="0"><img alt="cafe interior 1" src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&q=80"></div>
       <div class="img" tabindex="0"><img alt="coffee" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900&q=80"></div>
       <div class="img" tabindex="0"><img alt="pizza" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900&q=80"></div>
       <div class="img" tabindex="0"><img alt="food" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=900&q=80"></div>
       <div class="img" tabindex="0"><img alt="dessert" src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=900&q=80"></div>
       <div class="img" tabindex="0"><img alt="shake" src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=900&q=80"></div>
-      <div class="img" tabindex="0"><img alt="Non-Veg American Chopsuey" src="https://raw.githubusercontent.com/rahul76512/almost-cafe-demo/bbb35930d520a0ce6b21e4d9793bbe33102571f6/Non-Veg%20American%20Chopsuey.jpg"></div>
-      <div class="img" tabindex="0"><img alt="brusheta" src="https://raw.githubusercontent.com/rahul76512/almost-cafe-demo/bbb35930d520a0ce6b21e4d9793bbe33102571f6/brusheta.jpg"></div>
-      <div class="img" tabindex="0"><img alt="chicken" src="https://raw.githubusercontent.com/rahul76512/almost-cafe-demo/bbb35930d520a0ce6b21e4d9793bbe33102571f6/Banjara%20Chicken.jpg"></div>
-      <div class="img" tabindex="0"><img alt="nutella" src="https://raw.githubusercontent.com/rahul76512/almost-cafe-demo/bbb35930d520a0ce6b21e4d9793bbe33102571f6/Nutella%20Pan%20Cakes.jpg"></div>
+      <div class="img" tabindex="0"><img alt="Non-Veg American Chopsuey" src="https://raw.githubusercontent.com/rahul76512/almost-cafe-demo/bbb35930d520a0ce6b21e4d9793bbe33102571f6/Non-Veg%20American%20Chopsuey.jpg" alt="Non-Veg American Chopsuey
+        "></div>
+
+      <div class="img" tabindex="0"><img alt="brusheta" src="https://raw.githubusercontent.com/rahul76512/almost-cafe-demo/bbb35930d520a0ce6b21e4d9793bbe33102571f6/brusheta.jpg" alt="Brusheta"></div>
+
+      <div class="img" tabindex="0"><img alt="chicken" src="https://raw.githubusercontent.com/rahul76512/almost-cafe-demo/bbb35930d520a0ce6b21e4d9793bbe33102571f6/Banjara%20Chicken.jpg
+        "></div>
+      <div class="img" tabindex="0"><img alt="nutella" src="https://raw.githubusercontent.com/rahul76512/almost-cafe-demo/bbb35930d520a0ce6b21e4d9793bbe33102571f6/Nutella%20Pan%20Cakes.jpg" alt="Nutella Pan Cakes"></div>
+    
     </div>
   </section>
 
@@ -409,11 +422,14 @@
   <section id="reviews" aria-labelledby="reviews-heading">
     <h2 id="reviews-heading">Google Reviews</h2>
     <div class="reviews-wrap">
+      <!-- left: embedded google map (Place view -> users can open to see reviews) -->
       <div class="card map-embed">
+        <!-- Embedded Google Maps (place query). Users can view reviews inside this map embed or click to open full map -->
         <iframe
           title="Almost Café map"
           src="https://www.google.com/maps?q=Lower+Ground,+120/611A,+Opposite+Golden+Basket,+Lajpat+Nagar,+Kanpur&output=embed"
           width="100%" height="360" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
         <div style="padding:12px;display:flex;gap:8px;align-items:center;justify-content:space-between">
           <div class="muted">Live reviews shown on Google Maps. Click to open the place page for full reviews.</div>
           <div>
@@ -421,6 +437,8 @@
           </div>
         </div>
       </div>
+
+      <!-- right: sample review cards (keeps site presentable if embed restricted) -->
       <div class="reviews-cards">
         <div class="review">
           <div style="display:flex;justify-content:space-between;align-items:center">
@@ -429,6 +447,7 @@
           </div>
           <p class="muted" style="margin-top:8px">Good ambience and staff — ordered aalu paratha but it lacked potato, food presentation was nice though.</p>
         </div>
+
         <div class="review">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <div><strong>Akash D.</strong><div class="muted" style="font-size:13px">1 year ago</div></div>
@@ -436,6 +455,7 @@
           </div>
           <p class="muted" style="margin-top:8px">Pesto pasta and cheese balls were great. Underground space is quiet and vibe is awesome.</p>
         </div>
+
         <div class="review">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <div><strong>Shaurya T.</strong><div class="muted" style="font-size:13px">1 year ago</div></div>
@@ -462,6 +482,8 @@
           <a class="btn" href="https://wa.me/917311109101?text=Hello%2C%20I%20would%20like%20to%20book%20a%20table%20at%20Almost%20Caf%C3%A9" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
         </div>
       </div>
+
+      <!-- embedded map larger -->
       <div style="margin-top:8px" class="map-embed">
         <iframe title="Almost Cafe large map" src="https://www.google.com/maps?q=Lower+Ground,+120/611A,+Opposite+Golden+Basket,+Lajpat+Nagar,+Kanpur&output=embed" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
@@ -475,9 +497,63 @@
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px">
       <a class="btn" href="tel:07311109101">📞 Call Now</a>
       <a class="btn" href="https://wa.me/917311109101?text=Hello%2C%20I%20would%20like%20to%20book%20a%20table%20at%20Almost%20Caf%C3%A9" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
-      <a class="btn ghost" href="https://www.instagram.com/almostcafe?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">📷 Instagram</a>
+      <a class="btn ghost" href="https://www.instagram.com/almostcafe?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==
+      " target="_blank" rel="noopener noreferrer">📷 Instagram</a>
     </div>
+
     <div class="socials" style="margin-top:16px">
       <a class="btn" href="https://maps.app.goo.gl/o1H5Si2hjbQdv3jY6" target="_blank">📍 Google Maps</a>
+
     </div>
-    <p style="margin-top:18px;color:var(--muted)">© <span id="year"></span> Almost Café
+
+    <p style="margin-top:18px;color:var(--muted)">© <span id="year"></span> Almost Café · Website by Rahul Web Developer</p>
+  </footer>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // mobile menu toggle
+    function toggleMenu(){
+      var ul = document.getElementById('nav-links');
+      if(ul.style.display === 'flex') ul.style.display = 'none';
+      else ul.style.display = 'flex';
+    }
+
+    // lightbox gallery
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.gallery .img').forEach(el=>{
+      el.addEventListener('click', ()=> openLightbox(el.querySelector('img').src, el.querySelector('img').alt));
+      el.addEventListener('keypress', (e)=> { if(e.key === 'Enter') openLightbox(el.querySelector('img').src, el.querySelector('img').alt) });
+    });
+
+    function openLightbox(src, alt){
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || 'Gallery image';
+      lightbox.style.display = 'flex';
+      lightbox.setAttribute('aria-hidden', 'false');
+    }
+    function closeLightbox(){
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+      lightbox.setAttribute('aria-hidden', 'true');
+    }
+    // close on background click
+    lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
+
+    // keyboard close
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+
+    // Smooth scrolling for nav
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        var target = document.querySelector(this.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); if(window.innerWidth < 880) toggleMenu();}
+      });
+    });
+  </script>
+</body>
+</html>
+
+
