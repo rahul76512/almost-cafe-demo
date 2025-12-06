@@ -257,6 +257,34 @@
 header{
   min-height:64px;
 }
+/* ✅ MOBILE MENU VERTICAL FIX */
+@media (max-width: 880px){
+  #nav-links{
+    position:absolute;
+    top:64px;
+    right:16px;
+    background:#0b1726;
+    flex-direction:column;
+    width:180px;
+    padding:12px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.6);
+    display:none;
+    z-index:999;
+  }
+
+  #nav-links li{
+    width:100%;
+  }
+
+  #nav-links a{
+    display:block;
+    width:100%;
+    padding:10px 12px;
+    border-radius:8px;
+  }
+}
+
 
   </style>
 </head>
